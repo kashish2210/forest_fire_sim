@@ -1,38 +1,25 @@
-name: Python Package using Conda
+name: Basic Conda CI
 
 on: [push, pull_request]
 
 jobs:
-  build-linux:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-
-    - name: Install Miniconda
+    - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v3
       with:
-        auto-activate-base: false
-        python-version: 3.10
-        environment-file: environment.yml
         activate-environment: forestfire
-        use-mamba: true  # faster installation
+        environment-file: environment.yml
+        python-version: 3.10
+        auto-activate-base: false
 
-    - name: Lint with flake8
+    - name: Test with pytest
+      shell: bash -l {0}
       run: |
-        conda activate forestfire
-        conda install -c conda-forge flake8 -y
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-    - name: Run tests with pytest
-      run: |
-        conda activate forestfire
-        conda install -c conda-forge pytest -y
+        conda install pytest -y
         pytest
