@@ -21,8 +21,8 @@ jobs:
     permissions:
       id-token: write  # Required for PyPI Trusted Publishing
 
-    environment:
-      name: pypi  # Optional: use GitHub Environments for safety
+    # environment:
+    #   name: environment  # Optional: use GitHub Environments for safety
 
     steps:
       - name: Checkout source code
