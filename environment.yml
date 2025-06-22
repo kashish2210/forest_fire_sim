@@ -8,8 +8,5 @@ dependencies:
   - xarray
   - matplotlib
   - scikit-learn
-  - pytorch
-  - torchvision
   - pandas
-  - flake8
   - pytest
