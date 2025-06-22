@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="forestfire_sim",
+    name="ferse_fire",
     version="0.1.0",
     author="Your Name",
     description="A library for simulating and predicting forest fire spread using AI/ML",
