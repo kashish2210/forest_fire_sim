@@ -77,3 +77,6 @@ def summarize_prediction_stats(prediction_path):
 #     show_fire_probability_map(PRED_PATH, threshold=0.52)
 #     preview_fire_seed(PRED_PATH, threshold=0.52)
 #     summarize_prediction_stats(PRED_PATH)
+
+def simulate():
+    
